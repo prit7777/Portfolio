@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Alex Johnson</title>
+    <meta name="description" content="Web development insights, tutorials, and industry trends by Alex Johnson">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Additional styles for blog page */
+        .blog-hero {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+        
+        .blog-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+        
+        .blog-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .blog-card {
+            background: var(--bg-primary);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .blog-image {
+            height: 200px;
+            background: var(--gradient-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-image::before {
+            content: '\f15c';
+            font-family: 'Font Awesome 6 Free';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .blog-category {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .blog-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .blog-excerpt {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .blog-link:hover {
+            color: var(--primary-dark);
+        }
+        
+        .coming-soon {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+        }
+        
+        .coming-soon h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .coming-soon p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .back-home:hover {
+            color: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">AJ</a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button></li>
+            </ul>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="blog-hero">
+            <div class="container">
+                <h1 class="fade-in">My Blog</h1>
+                <p class="fade-in">Insights, tutorials, and thoughts about web development</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="blog-grid">
+                    <article class="blog-card fade-in">
+                        <div class="blog-image"></div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">React</span>
+                                <span><i class="fas fa-calendar"></i> Dec 15, 2024</span>
+                                <span><i class="fas fa-clock"></i> 5 min read</span>
+                            </div>
+                            <h3 class="blog-title">Building Scalable React Applications</h3>
+                            <p class="blog-excerpt">
+                                Learn best practices for structuring React applications that can grow with your team and requirements. We'll cover folder organization, state management, and component architecture.
+                            </p>
+                            <a href="#" class="blog-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card fade-in">
+                        <div class="blog-image"></div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">JavaScript</span>
+                                <span><i class="fas fa-calendar"></i> Dec 10, 2024</span>
+                                <span><i class="fas fa-clock"></i> 7 min read</span>
+                            </div>
+                            <h3 class="blog-title">Modern JavaScript: ES2024 Features</h3>
+                            <p class="blog-excerpt">
+                                Explore the latest JavaScript features that are changing how we write code. From new array methods to improved async handling, discover what's new in ES2024.
+                            </p>
+                            <a href="#" class="blog-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card fade-in">
+                        <div class="blog-image"></div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">CSS</span>
+                                <span><i class="fas fa-calendar"></i> Dec 5, 2024</span>
+                                <span><i class="fas fa-clock"></i> 4 min read</span>
+                            </div>
+                            <h3 class="blog-title">CSS Grid vs Flexbox: When to Use Which</h3>
+                            <p class="blog-excerpt">
+                                A comprehensive guide to choosing between CSS Grid and Flexbox for your layouts. Understand the strengths of each and make informed decisions for your projects.
+                            </p>
+                            <a href="#" class="blog-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card fade-in">
+                        <div class="blog-image"></div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Node.js</span>
+                                <span><i class="fas fa-calendar"></i> Nov 28, 2024</span>
+                                <span><i class="fas fa-clock"></i> 8 min read</span>
+                            </div>
+                            <h3 class="blog-title">Building RESTful APIs with Node.js</h3>
+                            <p class="blog-excerpt">
+                                Step-by-step guide to creating robust RESTful APIs using Node.js and Express. Learn about routing, middleware, error handling, and authentication best practices.
+                            </p>
+                            <a href="#" class="blog-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card fade-in">
+                        <div class="blog-image"></div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Performance</span>
+                                <span><i class="fas fa-calendar"></i> Nov 20, 2024</span>
+                                <span><i class="fas fa-clock"></i> 6 min read</span>
+                            </div>
+                            <h3 class="blog-title">Web Performance Optimization Techniques</h3>
+                            <p class="blog-excerpt">
+                                Discover proven techniques to make your web applications faster. From image optimization to code splitting, learn how to improve your site's performance metrics.
+                            </p>
+                            <a href="#" class="blog-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card fade-in">
+                        <div class="blog-image"></div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Career</span>
+                                <span><i class="fas fa-calendar"></i> Nov 15, 2024</span>
+                                <span><i class="fas fa-clock"></i> 5 min read</span>
+                            </div>
+                            <h3 class="blog-title">My Journey from Beginner to Full Stack Developer</h3>
+                            <p class="blog-excerpt">
+                                A personal reflection on my development journey. Learn from my mistakes, discoveries, and the resources that helped me grow as a developer.
+                            </p>
+                            <a href="#" class="blog-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="coming-soon fade-in">
+                    <h3>More Articles Coming Soon!</h3>
+                    <p>I'm constantly writing new content about web development, programming tips, and industry insights.</p>
+                    <a href="index.html" class="back-home">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to Portfolio
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2024 Alex Johnson. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
