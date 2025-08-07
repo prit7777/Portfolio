@@ -90,7 +90,7 @@ window.addEventListener('load', () => {
     const typingElement = document.querySelector('.typing');
     if (typingElement) {
         setTimeout(() => {
-            typeWriter(typingElement, 'Alex Johnson', 150);
+            typeWriter(typingElement, 'Pritesh Shewale', 150);
         }, 500);
     }
 });
